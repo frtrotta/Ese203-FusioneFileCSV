@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# In questo script l'elenco delle cartelle da trattare è definito con seq
-# Il comando read utilizza l'opzione -r
+# In questo script l'elenco delle cartelle non è noto a priori.
+# Qualsiasi directory contenuta nella directory corrente è considerata
+# riferirsi ad una filiale
 
 prima_filiale=1
 
@@ -10,6 +11,9 @@ for filiale in `ls -d */`
 # La sintassi precedente e' anche valida.
 do
 	filiale=${filiale:0:${#filiale}-1}
+	# Nell'istruzione precedente abbiamo eliminato l'ultimo carattere della stringa filiale
+	# Esso corrisponde al carattere /, avendo selezionato le directory
+	
 	prima_riga=1
 	while read -r linea
 	do
