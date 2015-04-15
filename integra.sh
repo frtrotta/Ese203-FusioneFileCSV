@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# In questo script l'elenco delle cartelle da trattare è definito manualmente.
-# Il comando read non utilizza l'opzione -r
+# In questo script l'elenco delle cartelle da trattare è definito con seq
+# Il comando read utilizza l'opzione -r
 
-for filiale in 01 02 03 04 05
+for filiale in `seq 5` 
 do
+	filiale=0$filiale
 	prima_riga=1
-	while read linea
+	while read -r linea
 	do
 		if [ $prima_riga -eq 1 ]
 		then
